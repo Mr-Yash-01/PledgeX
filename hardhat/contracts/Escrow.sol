@@ -17,8 +17,7 @@ contract Escrow {
     }
 
     // Release a specific amount (converted from ETH to Wei) to a freelancer
-    function releaseFunds(string memory projectId, address payable freelancer, uint256 amountInEth) external {
-        uint256 amountInWei = amountInEth * 1e18; // Convert ETH to Wei
+    function releaseFunds(string memory projectId, address payable freelancer, uint256 amountInWei) external {
 
         require(amountInWei > 0, "Amount must be greater than zero");
         require(projectBalances[projectId] >= amountInWei, "Insufficient funds");
